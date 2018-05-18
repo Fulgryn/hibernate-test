@@ -7,8 +7,6 @@ import java.util.List;
 @Entity
 public class Client {
 
-
-
     @Id
     @SequenceGenerator(name = "client_id_seq", sequenceName = "client_id_seq", initialValue = 1)
     @GeneratedValue(generator = "client_id_seq")
@@ -20,7 +18,7 @@ public class Client {
     @Column
     private String firstname;
 
-    @Column
+    @Enumerated(EnumType.STRING)
     private Gender genre;
 
     @ManyToOne
@@ -88,5 +86,17 @@ public class Client {
             this.purchasedBooks = new ArrayList<>();
         }
         purchasedBooks.add(book);
+    }
+
+    @Override
+    public String toString() {
+        return lastname + " " + firstname;
+    }
+
+    public void displayPurchasedBooks(){
+        System.out.println("Books bought by " + this.toString() + " :");
+        for (Book b: this.purchasedBooks) {
+            System.out.println(b.toString());
+        }
     }
 }

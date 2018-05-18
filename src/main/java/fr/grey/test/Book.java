@@ -57,5 +57,8 @@ public class Book {
         this.purchasedBy = purchasedBy;
     }
 
-
+    @Override
+    public String toString() {
+        return title + " by " + author;
+    }
 }
