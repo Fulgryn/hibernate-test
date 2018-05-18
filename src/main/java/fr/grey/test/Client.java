@@ -2,6 +2,7 @@ package fr.grey.test;
 
 import javax.persistence.*;
 
+@Entity
 public class Client {
     @Id
     @GeneratedValue
