@@ -7,7 +7,8 @@ import java.util.List;
 public class Book {
 
     @Id
-    @GeneratedValue
+    @SequenceGenerator(name = "book_id_seq", sequenceName = "book_id_seq", initialValue = 1)
+    @GeneratedValue(generator = "book_id_seq")
     private Long id;
 
     @Column
@@ -18,5 +19,43 @@ public class Book {
 
     @ManyToMany(mappedBy = "purchasedBooks")
     private List<Client> purchasedBy;
+
+    public Book() {
+    }
+
+    public Book(String title, String author) {
+        this();
+        this.title = title;
+        this.author = author;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
+    }
+
+    public List<Client> getPurchasedBy() {
+        return purchasedBy;
+    }
+
+    public void setPurchasedBy(List<Client> purchasedBy) {
+        this.purchasedBy = purchasedBy;
+    }
+
 
 }
