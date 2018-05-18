@@ -1,6 +1,7 @@
 package fr.grey.test;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Book {
@@ -15,6 +16,7 @@ public class Book {
     @Column
     private String author;
 
-
+    @ManyToMany(mappedBy = "purchasedBooks")
+    private List<Client> purchasedBy;
 
 }

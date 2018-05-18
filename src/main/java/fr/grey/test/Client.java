@@ -1,6 +1,7 @@
 package fr.grey.test;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Client {
@@ -19,5 +20,8 @@ public class Client {
 
     @ManyToOne
     private Book favoriteBook;
+
+    @ManyToMany
+    private List<Book> purchasedBooks;
 
 }
