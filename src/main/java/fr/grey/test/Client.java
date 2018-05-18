@@ -16,5 +16,7 @@ public class Client {
     @Column
     private Gender genre;
 
+    @ManyToOne
+    private Book favoriteBook;
 
 }
